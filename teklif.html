@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benimle Bir Ömür Olur Musun?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to bottom right, #ffe4e1, #fff0f5);
+            color: #4a4a4a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            color: #d84357;
+        }
+        p {
+            font-size: 1.5em;
+            font-weight: bold;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+        .buttons {
+            margin-top: 30px;
+        }
+        .button {
+            background-color: #d84357;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0 15px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        #yesButton {
+            background-color: #2ecc71;
+        }
+        #yesButton:hover {
+            background-color: #27ae60;
+        }
+        .response-message {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2em;
+            color: #d84357;
+            margin-top: 30px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Benimle bir ömür olmaya var mısın?</h1>
+        <div class="buttons">
+            <button id="yesButton" class="button">Evet!</button>
+            <button id="noButton" class="button">Hayır...</button>
+        </div>
+        <p class="response-message" id="responseMessage"></p>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const responseMessage = document.getElementById('responseMessage');
+
+        const noMessages = [
+            "Hayır diyemezsin ki... Kalbin 'evet' diye bağırıyor.",
+            "Birlikte bir hayatı kaçırmak istemezsin, değil mi?",
+            "Sonsuza dek sürecek bir aşkı reddetmek olmaz.",
+            "Teklifimi kabul edene kadar buradan gidemeyiz.",
+            "Benimle evlenmelisin, çünkü sensiz yaşayamam."
+        ];
+
+        let messageIndex = 0;
+
+        noButton.addEventListener('click', () => {
+            if (messageIndex < noMessages.length) {
+                responseMessage.textContent = noMessages[messageIndex];
+                responseMessage.style.opacity = 1;
+                messageIndex++;
+            } else {
+                responseMessage.textContent = "Sana 'evet' dedirteceğim. Benimle evlenmelisin!";
+                responseMessage.style.opacity = 1;
+            }
+        });
+
+        yesButton.addEventListener('click', () => {
+            window.location.href = "mektup.html";
+        });
+    </script>
+</body>
+</html>
